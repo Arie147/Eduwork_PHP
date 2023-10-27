@@ -2,7 +2,7 @@
 
 include("connection.php");
 
-$query = mysqli_query($conn,"SELECT * FROM anggota");
+$query = mysqli_query($conn,"SELECT * FROM pengarang");
 
 ?>
 
@@ -27,32 +27,30 @@ $query = mysqli_query($conn,"SELECT * FROM anggota");
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="index.php">Anggota</a>
+          <a class="nav-link" href="index.php">Anggota</a>
           <a class="nav-link" href="buku.php">Buku</a>
           <a class="nav-link" href="penerbit.php">Penerbit</a>
-          <a class="nav-link" href="pengarang.php">Pengarang</a>
+          <a class="nav-link active" aria-current="page" href="pengarang.php">Pengarang</a>
         </div>
       </div>
     </div>
   </nav>
-  <p class="text-center fs-3 fw-bold mt-3 mb-3">Data Anggota</p>
+  <p class="text-center fs-3 fw-bold mt-3 mb-3">Data Pengarang</p>
   <table class="table table-bordered table-striped table-primary table-hover">
     <tr>
       <th>Nama</th>
-      <th>Jenis Kelamin</th>
+      <th>Email</th>
       <th>Telp</th>
       <th>Alamat</th>
-      <th>Email</th>
     </tr>
     <?php
       foreach ($query as $data) {
     ?>
     <tr>
-      <td><?php echo $data['nama']; ?></td>
-      <td><?php echo $data['sex']; ?></td>
+      <td><?php echo $data['nama_pengarang']; ?></td>
+      <td><?php echo $data['email']; ?></td>
       <td><?php echo $data['telp']; ?></td>
       <td><?php echo $data['alamat']; ?></td>
-      <td><?php echo $data['email']; ?></td>
     </tr>
     <?php } ?>
   </table>
