@@ -12,7 +12,7 @@ $query = mysqli_query($conn,"SELECT * FROM penerbit");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <title>Anggota</title>
+  <title>Penerbit</title>
   <style>
     body {
       font-family: Arial;
@@ -22,9 +22,6 @@ $query = mysqli_query($conn,"SELECT * FROM penerbit");
 <body>
   <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" href="index.php">Anggota</a>
@@ -36,6 +33,7 @@ $query = mysqli_query($conn,"SELECT * FROM penerbit");
     </div>
   </nav>
   <p class="text-center fs-3 fw-bold mt-3 mb-3">Data Penerbit</p>
+  <a class="btn btn-primary mb-3 ms-3" href="tambah_data/tambah_penerbit.php" role="button">Tambah Data Penerbit</a>
   <table class="table table-bordered table-striped table-primary table-hover">
     <tr>
       <th>Nama</th>

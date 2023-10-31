@@ -22,9 +22,6 @@ $query = mysqli_query($conn,"SELECT * FROM anggota");
 <body>
   <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="index.php">Anggota</a>
@@ -36,6 +33,7 @@ $query = mysqli_query($conn,"SELECT * FROM anggota");
     </div>
   </nav>
   <p class="text-center fs-3 fw-bold mt-3 mb-3">Data Anggota</p>
+  <a class="btn btn-primary mb-3 ms-3" href="tambah_data/tambah_anggota.php" role="button">Tambah Data Anggota</a>
   <table class="table table-bordered table-striped table-primary table-hover">
     <tr>
       <th>Nama</th>
