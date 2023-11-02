@@ -2,7 +2,7 @@
 
 include("connection.php");
 
-$query = mysqli_query($conn,"SELECT * FROM buku JOIN penerbit ON buku.id_penerbit = penerbit.id_penerbit JOIN pengarang ON buku.id_pengarang = pengarang.id_pengarang;");
+$query = mysqli_query($conn,"SELECT * FROM buku JOIN penerbit ON buku.id_penerbit = penerbit.id_penerbit JOIN pengarang ON buku.id_pengarang = pengarang.id_pengarang JOIN katalog ON buku.id_katalog = katalog.id_katalog ORDER BY isbn ASC;");
 
 ?>
 
@@ -41,8 +41,10 @@ $query = mysqli_query($conn,"SELECT * FROM buku JOIN penerbit ON buku.id_penerbi
       <th>Tahun</th>
       <th>Penerbit</th>
       <th>Pengarang</th>
+      <th>Nama Katalog</th>
       <th>Stok</th>
       <th>Harga Pinjam</th>
+      <th>Aksi</th>
     </tr>
     <?php
       foreach ($query as $data) {
@@ -53,8 +55,13 @@ $query = mysqli_query($conn,"SELECT * FROM buku JOIN penerbit ON buku.id_penerbi
       <td><?php echo $data['tahun']; ?></td>
       <td><?php echo $data['nama_penerbit']; ?></td>
       <td><?php echo $data['nama_pengarang']; ?></td>
+      <td><?php echo $data['nama']; ?></td>
       <td><?php echo $data['qty_stok']; ?></td>
       <td><?php echo "Rp ".number_format($data['harga_pinjam']); ?></td>
+      <td>
+        <a class="btn btn-warning btn-sm" href="edit/edit_buku.php?isbn=<?php echo $data["isbn"]; ?>" role="button">Edit</a>
+        <a class="btn btn-danger btn-sm" href="backend/delete/proses_delete_buku.php?isbn=<?php echo $data["isbn"]; ?>" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus item ini?')">Delete</a>
+      </td>
     </tr>
     <?php } ?>
   </table>

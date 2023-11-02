@@ -37,20 +37,29 @@ $query = mysqli_query($conn,"SELECT * FROM anggota");
   <table class="table table-bordered table-striped table-primary table-hover">
     <tr>
       <th>Nama</th>
+      <th>Username</th>
+      <th>Password</th>
       <th>Jenis Kelamin</th>
       <th>Telp</th>
       <th>Alamat</th>
       <th>Email</th>
+      <th>Aksi</th>
     </tr>
     <?php
       foreach ($query as $data) {
     ?>
     <tr>
       <td><?php echo $data['nama']; ?></td>
+      <td><?php echo $data['username']; ?></td>
+      <td><?php echo $data['password']; ?></td>
       <td><?php echo $data['sex']; ?></td>
       <td><?php echo $data['telp']; ?></td>
       <td><?php echo $data['alamat']; ?></td>
       <td><?php echo $data['email']; ?></td>
+      <td>
+        <a class="btn btn-warning btn-sm" href="edit/edit_anggota.php?id=<?php echo $data["id_anggota"]; ?>" role="button">Edit</a>
+        <a class="btn btn-danger btn-sm" href="backend/delete/proses_delete_anggota.php?id=<?php echo $data["id_anggota"]; ?>" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus item ini?')">Delete</a>
+      </td>
     </tr>
     <?php } ?>
   </table>

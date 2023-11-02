@@ -36,19 +36,26 @@ $query = mysqli_query($conn,"SELECT * FROM penerbit");
   <a class="btn btn-primary mb-3 ms-3" href="tambah_data/tambah_penerbit.php" role="button">Tambah Data Penerbit</a>
   <table class="table table-bordered table-striped table-primary table-hover">
     <tr>
+      <th>ID Penerbit</th>
       <th>Nama</th>
       <th>Email</th>
       <th>Telp</th>
       <th>Alamat</th>
+      <th>Aksi</th>
     </tr>
     <?php
       foreach ($query as $data) {
     ?>
     <tr>
+      <td><?php echo $data['id_penerbit']; ?></td>
       <td><?php echo $data['nama_penerbit']; ?></td>
       <td><?php echo $data['email']; ?></td>
       <td><?php echo $data['telp']; ?></td>
       <td><?php echo $data['alamat']; ?></td>
+      <td>
+        <a class="btn btn-warning btn-sm" href="edit/edit_penerbit.php?id=<?php echo $data["id_penerbit"]; ?>" role="button">Edit</a>
+        <a class="btn btn-danger btn-sm" href="backend/delete/proses_delete_penerbit.php?id=<?php echo $data["id_penerbit"]; ?>" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus item ini?')">Delete</a>
+      </td>
     </tr>
     <?php } ?>
   </table>

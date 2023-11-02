@@ -18,7 +18,7 @@ $katalog = mysqli_query($conn,"SELECT * FROM katalog");
 <body>
   <div class="container">
     <h1>Tambah Buku</h1>
-    <form action="../backend/proses_tambah_buku.php" method="post">
+    <form action="../backend/tambah/proses_tambah_buku.php" method="post">
       <div class="mb-3">
         <label for="isbn" class="form-label">ISBN</label>
         <input type="text" class="form-control" name="isbn" id="isbn" required>

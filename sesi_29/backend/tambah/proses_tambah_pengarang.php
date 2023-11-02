@@ -1,6 +1,6 @@
 <?php
 
-include("../connection.php");
+include("../../connection.php");
 
 $id = $_POST["id"];
 $nama = $_POST["nama"];
@@ -11,6 +11,6 @@ $alamat = $_POST["alamat"];
 
 $result = mysqli_query($conn,"INSERT INTO `pengarang` (`id_pengarang`, `nama_pengarang`, `email`, `telp`, `alamat`) VALUES ('$id', '$nama', '$email', '$telp', '$alamat');");
 
-header("Location:../pengarang.php")
+header("Location:../../pengarang.php")
 
 ?>

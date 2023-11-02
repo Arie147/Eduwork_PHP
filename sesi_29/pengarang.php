@@ -36,19 +36,26 @@ $query = mysqli_query($conn,"SELECT * FROM pengarang");
   <a class="btn btn-primary mb-3 ms-3" href="tambah_data/tambah_pengarang.php" role="button">Tambah Data Pengarang</a>
   <table class="table table-bordered table-striped table-primary table-hover">
     <tr>
+      <th>ID Pengarang</th>
       <th>Nama</th>
       <th>Email</th>
       <th>Telp</th>
       <th>Alamat</th>
+      <th>Aksi</th>
     </tr>
     <?php
       foreach ($query as $data) {
     ?>
     <tr>
+      <td><?php echo $data['id_pengarang']; ?></td>
       <td><?php echo $data['nama_pengarang']; ?></td>
       <td><?php echo $data['email']; ?></td>
       <td><?php echo $data['telp']; ?></td>
       <td><?php echo $data['alamat']; ?></td>
+      <td>
+        <a class="btn btn-warning btn-sm" href="edit/edit_pengarang.php?id=<?php echo $data["id_pengarang"]; ?>" role="button">Edit</a>
+        <a class="btn btn-danger btn-sm" href="backend/delete/proses_delete_pengarang.php?id=<?php echo $data["id_pengarang"]; ?>" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus item ini?')">Delete</a>
+      </td>
     </tr>
     <?php } ?>
   </table>

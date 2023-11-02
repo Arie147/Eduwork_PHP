@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h1>Tambah Anggota</h1>
-    <form action="../backend/proses_tambah_anggota.php" method="post">
+    <form action="../backend/tambah/proses_tambah_anggota.php" method="post">
       <div class="mb-3">
         <label for="nama" class="form-label">Nama</label>
         <input type="text" class="form-control" name="nama" id="nama" required>
