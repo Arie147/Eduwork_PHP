@@ -38,7 +38,7 @@ $query = mysqli_query($conn,"SELECT * FROM anggota");
   </nav>
   <p class="text-center fs-3 fw-bold mt-3 mb-3">Data Anggota</p>
   <a class="btn btn-primary mb-3 ms-3" href="tambah_data/tambah_anggota.php" role="button">Tambah Data Anggota</a>
-  <table id="myTable" class="table table-bordered table-striped table-primary table-hover">
+  <table id="table-data" class="table table-bordered table-striped table-primary table-hover">
     <thead>
       <th>Nama</th>
       <th>Username</th>
@@ -72,7 +72,7 @@ $query = mysqli_query($conn,"SELECT * FROM anggota");
 
   <script>
     $(document).ready( function () {
-      $('#myTable').DataTable();
+      $('#table-data').DataTable();
     } );
   </script>
 </body>

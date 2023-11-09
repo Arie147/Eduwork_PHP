@@ -38,7 +38,7 @@ $query = mysqli_query($conn,"SELECT * FROM pengarang");
   </nav>
   <p class="text-center fs-3 fw-bold mt-3 mb-3">Data Pengarang</p>
   <a class="btn btn-primary mb-3 ms-3" href="tambah_data/tambah_pengarang.php" role="button">Tambah Data Pengarang</a>
-  <table id="myTable" class="table table-bordered table-striped table-primary table-hover">
+  <table id="table-data" class="table table-bordered table-striped table-primary table-hover">
     <thead>
       <th>ID Pengarang</th>
       <th>Nama</th>
@@ -66,7 +66,7 @@ $query = mysqli_query($conn,"SELECT * FROM pengarang");
 
   <script>
     $(document).ready( function () {
-      $('#myTable').DataTable();
+      $('#table-data').DataTable();
     } );
   </script>
 </body>
