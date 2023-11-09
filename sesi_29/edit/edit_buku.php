@@ -49,18 +49,11 @@ $katalog = mysqli_query($conn,"SELECT * FROM katalog");
           <?php
             foreach ($penerbit as $data) {
           ?>
-            <option value="<?php if ($data['id_penerbit'] == $id_penerbit) { 
-              echo $id_penerbit;
-              } else {
-              echo $data['id_penerbit'];
-              } ?>" <?php if ($data['id_penerbit'] == $id_penerbit) { 
+            <option value="<?php $data['id_penerbit']; ?>" <?php if ($data['id_penerbit'] == $id_penerbit) 
+              { 
                 echo "selected";
-                } ?>
-            ><?php if ($data['id_penerbit'] == $id_penerbit) { 
-              echo $id_penerbit;
-              } else {
-              echo $data['id_penerbit'];
               } ?>
+            ><?php echo $data['id_penerbit']; ?>
             </option>
           <?php } ?>
         </select>
@@ -71,18 +64,11 @@ $katalog = mysqli_query($conn,"SELECT * FROM katalog");
           <?php
             foreach ($pengarang as $data) {
           ?>
-            <option value="<?php if ($data['id_pengarang'] == $id_pengarang) { 
-              echo $id_pengarang;
-              } else {
-              echo $data['id_pengarang'];
-              } ?>" <?php if ($data['id_pengarang'] == $id_pengarang) { 
+            <option value="<?php echo $data['id_pengarang']; ?>" <?php if ($data['id_pengarang'] == $id_pengarang)
+              { 
                 echo "selected";
-                } ?>
-            ><?php if ($data['id_pengarang'] == $id_pengarang) { 
-              echo $id_pengarang;
-              } else {
-              echo $data['id_pengarang'];
               } ?>
+            ><?php echo $data['id_pengarang']; ?>
             </option>
           <?php } ?>
         </select>
@@ -93,18 +79,11 @@ $katalog = mysqli_query($conn,"SELECT * FROM katalog");
           <?php
             foreach ($katalog as $data) {
           ?>
-            <option value="<?php if ($data['id_katalog'] == $id_katalog) { 
-              echo $id_katalog;
-              } else {
-              echo $data['id_katalog'];
-              } ?>" <?php if ($data['id_katalog'] == $id_katalog) { 
+            <option value="<?php echo $data['id_katalog']; ?>" <?php if ($data['id_katalog'] == $id_katalog) 
+              { 
                 echo "selected";
-                } ?>
-            ><?php if ($data['id_katalog'] == $id_katalog) { 
-              echo $id_katalog;
-              } else {
-              echo $data['id_katalog'];
               } ?>
+            ><?php echo $data['id_katalog']; ?>
             </option>
           <?php } ?>
         </select>
