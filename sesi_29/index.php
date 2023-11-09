@@ -12,6 +12,10 @@ $query = mysqli_query($conn,"SELECT * FROM anggota");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
   <title>Anggota</title>
   <style>
     body {
@@ -34,8 +38,8 @@ $query = mysqli_query($conn,"SELECT * FROM anggota");
   </nav>
   <p class="text-center fs-3 fw-bold mt-3 mb-3">Data Anggota</p>
   <a class="btn btn-primary mb-3 ms-3" href="tambah_data/tambah_anggota.php" role="button">Tambah Data Anggota</a>
-  <table class="table table-bordered table-striped table-primary table-hover">
-    <tr>
+  <table id="myTable" class="table table-bordered table-striped table-primary table-hover">
+    <thead>
       <th>Nama</th>
       <th>Username</th>
       <th>Password</th>
@@ -44,26 +48,32 @@ $query = mysqli_query($conn,"SELECT * FROM anggota");
       <th>Alamat</th>
       <th>Email</th>
       <th>Aksi</th>
-    </tr>
-    <?php
-      foreach ($query as $data) {
-    ?>
-    <tr>
-      <td><?php echo $data['nama']; ?></td>
-      <td><?php echo $data['username']; ?></td>
-      <td><?php echo $data['password']; ?></td>
-      <td><?php echo $data['sex']; ?></td>
-      <td><?php echo $data['telp']; ?></td>
-      <td><?php echo $data['alamat']; ?></td>
-      <td><?php echo $data['email']; ?></td>
-      <td>
-        <a class="btn btn-warning btn-sm" href="edit/edit_anggota.php?id=<?php echo $data["id_anggota"]; ?>" role="button">Edit</a>
-        <a class="btn btn-danger btn-sm" href="backend/delete/proses_delete_anggota.php?id=<?php echo $data["id_anggota"]; ?>" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus item ini?')">Delete</a>
-      </td>
-    </tr>
-    <?php } ?>
+    </thead>
+    <tbody>
+      <?php
+        foreach ($query as $data) {
+      ?>
+        <tr>
+          <td><?php echo $data['nama']; ?></td>
+          <td><?php echo $data['username']; ?></td>
+          <td><?php echo $data['password']; ?></td>
+          <td><?php echo $data['sex']; ?></td>
+          <td><?php echo $data['telp']; ?></td>
+          <td><?php echo $data['alamat']; ?></td>
+          <td><?php echo $data['email']; ?></td>
+          <td>
+            <a class="btn btn-warning btn-sm" href="edit/edit_anggota.php?id=<?php echo $data["id_anggota"]; ?>" role="button">Edit</a>
+            <a class="btn btn-danger btn-sm" href="backend/delete/proses_delete_anggota.php?id=<?php echo $data["id_anggota"]; ?>" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus item ini?')">Delete</a>
+          </td>
+        </tr>
+      <?php } ?>
+    </tbody>
   </table>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready( function () {
+      $('#myTable').DataTable();
+    } );
+  </script>
 </body>
 </html>

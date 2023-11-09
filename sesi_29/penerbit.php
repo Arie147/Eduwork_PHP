@@ -12,6 +12,10 @@ $query = mysqli_query($conn,"SELECT * FROM penerbit");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
   <title>Penerbit</title>
   <style>
     body {
@@ -34,15 +38,15 @@ $query = mysqli_query($conn,"SELECT * FROM penerbit");
   </nav>
   <p class="text-center fs-3 fw-bold mt-3 mb-3">Data Penerbit</p>
   <a class="btn btn-primary mb-3 ms-3" href="tambah_data/tambah_penerbit.php" role="button">Tambah Data Penerbit</a>
-  <table class="table table-bordered table-striped table-primary table-hover">
-    <tr>
+  <table id="myTable" class="table table-bordered table-striped table-primary table-hover">
+    <thead>
       <th>ID Penerbit</th>
       <th>Nama</th>
       <th>Email</th>
       <th>Telp</th>
       <th>Alamat</th>
       <th>Aksi</th>
-    </tr>
+    </thead>
     <?php
       foreach ($query as $data) {
     ?>
@@ -60,6 +64,10 @@ $query = mysqli_query($conn,"SELECT * FROM penerbit");
     <?php } ?>
   </table>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready( function () {
+      $('#myTable').DataTable();
+    } );
+  </script>
 </body>
 </html>

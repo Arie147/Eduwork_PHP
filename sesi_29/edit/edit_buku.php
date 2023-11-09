@@ -28,11 +28,13 @@ $katalog = mysqli_query($conn,"SELECT * FROM katalog");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Buku</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 </head>
 <body>
   <div class="container">
     <h1>Edit Buku</h1>
-    <form action="../backend/edit/proses_edit_buku.php?isbn=<?php echo $data["isbn"]; ?>" method="post">
+    <form id="form-edit" action="../backend/edit/proses_edit_buku.php?isbn=<?php echo $data["isbn"]; ?>" method="post">
       <div class="mb-3">
         <label for="judul" class="form-label">Judul</label>
         <input type="text" class="form-control" name="judul" id="judul" value="<?php echo $judul; ?>" required>
@@ -116,10 +118,32 @@ $katalog = mysqli_query($conn,"SELECT * FROM katalog");
         <input type="number" class="form-control" name="harga_pinjam" id="harga_pinjam" value="<?php echo $harga_pinjam; ?>" required>
       </div>
       <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="submit" type="submit" class="btn btn-primary" onclick="editData()">Submit</button>
         <a class="btn btn-primary" href="../buku.php" role="button">Cancel</a>
       </div>
     </form>
   </div>
+
+  <script>
+    $(document).ready(function(){
+      $('#form-edit input').on('input', function() {
+        var formFilled = true;
+        $('#form-edit input').each(function() {
+          if ($(this).val() === '') {
+            formFilled = false;
+          }
+        });
+        if (formFilled) {
+          $('#submit').prop('disabled', false);
+        } else {
+          $('#submit').prop('disabled', true);
+        }
+      });
+    });
+
+    function editData() {
+      alert("Data berhasil diubah");
+    }
+  </script>
 </body>
 </html>
